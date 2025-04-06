@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=4 uid="uid://cy1covu0yl3gt"]
+
+[ext_resource type="Texture2D" uid="uid://bd2ai6bv0vjtd" path="res://src/res/placeholders/placeholder_ground.png" id="1_qupf7"]
+[ext_resource type="PackedScene" uid="uid://dr65a00wlfqgr" path="res://src/objects/player/player.tscn" id="2_k634l"]
+[ext_resource type="PackedScene" uid="uid://k5wa6it8b86n" path="res://src/objects/others/door_start.tscn" id="3_3tyqg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k634l"]
+texture = ExtResource("1_qupf7")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_3tyqg"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_k634l")
+
+[node name="DefaultTeste" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAATAAoAAAAAAAAAAAATAAkAAAAAAAAAAAATAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_3tyqg")
+
+[node name="Player" parent="TileMapLayer" instance=ExtResource("2_k634l")]
+position = Vector2(59, 155)
+
+[node name="door_start" parent="." instance=ExtResource("3_3tyqg")]
+position = Vector2(120, 40)

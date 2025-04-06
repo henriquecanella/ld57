@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=4 uid="uid://cwh0kx3v1ivs0"]
+
+[ext_resource type="Texture2D" uid="uid://bd2ai6bv0vjtd" path="res://src/res/placeholders/placeholder_ground.png" id="1_7gbyn"]
+[ext_resource type="Script" uid="uid://ciynlwtxtysl2" path="res://src/scenes/default_teste_2.gd" id="1_wej32"]
+[ext_resource type="PackedScene" uid="uid://dr65a00wlfqgr" path="res://src/objects/player/player.tscn" id="2_wej32"]
+[ext_resource type="PackedScene" uid="uid://boh4vpdi2cq8s" path="res://src/objects/others/lamp.tscn" id="4_wej32"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k634l"]
+texture = ExtResource("1_7gbyn")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_3tyqg"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_k634l")
+
+[node name="DefaultTeste" type="Node2D"]
+script = ExtResource("1_wej32")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_3tyqg")
+
+[node name="Player" parent="TileMapLayer" instance=ExtResource("2_wej32")]
+position = Vector2(59, 155)
+collision_layer = 2
+
+[node name="Lamp" parent="." instance=ExtResource("4_wej32")]
+position = Vector2(181, 168)
+_scenePath = NodePath("..")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

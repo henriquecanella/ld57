@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccsptjq3l5qec"]
+
+[ext_resource type="Script" uid="uid://bjrdcq735m1sa" path="res://src/objects/others/door_start.gd" id="1_mibjv"]
+[ext_resource type="Texture2D" uid="uid://begx0ynwf4sl3" path="res://src/res/placeholders/placeholder_jump2.png" id="1_vpuhe"]
+[ext_resource type="PackedScene" uid="uid://k5wa6it8b86n" path="res://src/objects/others/interaction_area.tscn" id="2_mibjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpsl4"]
+size = Vector2(46, 66)
+
+[node name="DoorStart" type="Node2D"]
+position = Vector2(73, 49)
+script = ExtResource("1_mibjv")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.05176e-05, 7.62939e-06)
+scale = Vector2(2.0625, 4.125)
+texture = ExtResource("1_vpuhe")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_mibjv")]
+position = Vector2(0, 0)
+action_name = "enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-6, 0)
+shape = SubResource("RectangleShape2D_kpsl4")

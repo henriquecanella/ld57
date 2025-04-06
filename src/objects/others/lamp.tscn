@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://boh4vpdi2cq8s"]
+
+[ext_resource type="Script" uid="uid://c1owuedudnj57" path="res://src/objects/others/lamp.gd" id="1_568f2"]
+[ext_resource type="Texture2D" uid="uid://bd2ai6bv0vjtd" path="res://src/res/placeholders/placeholder_ground.png" id="1_k6hrw"]
+[ext_resource type="Texture2D" uid="uid://b20mcc1xcdxa3" path="res://src/res/placeholders/placeholder_idle2.png" id="4_m3dbf"]
+[ext_resource type="PackedScene" uid="uid://k5wa6it8b86n" path="res://src/objects/others/interaction_area.tscn" id="5_ppa1k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2vpt3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k6hrw")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m3dbf")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyiqe"]
+radius = 18.0278
+
+[node name="Lamp" type="Node2D"]
+script = ExtResource("1_568f2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2vpt3")
+animation = &"on"
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_ppa1k")]
+action_name = "Turn on Lamp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_oyiqe")
