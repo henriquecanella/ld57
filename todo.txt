@@ -1,0 +1,14 @@
+Player:
+	- walk [seta direita e esquerda];
+	- jump [seta pra cima];
+	- down [seta pra baixo, não tá configurado pois precisa decidir se vai usar];
+	- interact [tecla E];
+	- up_lamp [decidir, se o personagem carrega uma lanterna ele pode levantar ela para gerar um iluminação, ai esse botão seria para manter pressionado para iluminar uma direção];
+
+Objeto de interação:
+	- porta [baseado no objeto de rea de interação é possível configurar uma porta para trocar de área]
+	- lamparina/bacia de luz [ao interagir o player acende ela iluminando o local]
+
+Ground:
+	- está configurado só precisamos definir o taile/sprite.
+	- precisa criar a layer separada para paredes e colocar sprite no fundo.
