@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://boh4vpdi2cq8s"]
+[gd_scene load_steps=9 format=3 uid="uid://boh4vpdi2cq8s"]
 
 [ext_resource type="Script" uid="uid://c1owuedudnj57" path="res://src/objects/others/lamp.gd" id="1_568f2"]
 [ext_resource type="Texture2D" uid="uid://bd2ai6bv0vjtd" path="res://src/res/placeholders/placeholder_ground.png" id="1_k6hrw"]
@@ -27,6 +27,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oyiqe"]
 radius = 18.0278
 
+[sub_resource type="Gradient" id="Gradient_4lius"]
+offsets = PackedFloat32Array(0, 0.728175)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k6hrw"]
+gradient = SubResource("Gradient_4lius")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Lamp" type="Node2D"]
 script = ExtResource("1_568f2")
 
@@ -40,3 +49,9 @@ action_name = "Turn on Lamp"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_oyiqe")
+
+[node name="Fonte" type="PointLight2D" parent="."]
+position = Vector2(-1, 0)
+enabled = false
+color = Color(1, 1, 0.345098, 0.890196)
+texture = SubResource("GradientTexture2D_k6hrw")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcyd007nsyrbt"]
+
+[ext_resource type="Script" uid="uid://cdkjked6t0gb0" path="res://src/objects/others/lantern.gd" id="1_f03vq"]
+
+[sub_resource type="Gradient" id="Gradient_4lius"]
+offsets = PackedFloat32Array(0, 0.0555556, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.944444, 0.944444, 0.944444, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ffucr"]
+gradient = SubResource("Gradient_4lius")
+fill = 1
+fill_from = Vector2(0.803419, 0.517094)
+
+[node name="lantern" type="Node2D"]
+script = ExtResource("1_f03vq")
+
+[node name="Fonte" type="PointLight2D" parent="."]
+scale = Vector2(1.03125, 1)
+enabled = false
+color = Color(1, 1, 0.345098, 0.890196)
+texture = SubResource("GradientTexture2D_ffucr")
