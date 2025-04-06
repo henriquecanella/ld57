@@ -8,6 +8,7 @@
 size = Vector2(46, 66)
 
 [node name="DoorStart" type="Node2D"]
+z_index = -10
 position = Vector2(73, 49)
 script = ExtResource("1_mibjv")
 metadata/_edit_group_ = true

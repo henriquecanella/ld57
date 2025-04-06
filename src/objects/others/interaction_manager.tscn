@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c47mq2uehvvg3" path="res://src/objects/others/interaction_manager.gd" id="1_t7uy8"]
 
 [node name="InteractionManager" type="Node2D"]
+z_index = -1
 script = ExtResource("1_t7uy8")
 
 [node name="Label" type="Label" parent="."]

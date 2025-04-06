@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cwh0kx3v1ivs0"]
+[gd_scene load_steps=8 format=4 uid="uid://cwh0kx3v1ivs0"]
 
 [ext_resource type="Texture2D" uid="uid://bd2ai6bv0vjtd" path="res://src/res/placeholders/placeholder_ground.png" id="1_7gbyn"]
 [ext_resource type="Script" uid="uid://ciynlwtxtysl2" path="res://src/scenes/default_teste_2.gd" id="1_wej32"]
 [ext_resource type="PackedScene" uid="uid://dr65a00wlfqgr" path="res://src/objects/player/player.tscn" id="2_wej32"]
 [ext_resource type="PackedScene" uid="uid://boh4vpdi2cq8s" path="res://src/objects/others/lamp.tscn" id="4_wej32"]
+[ext_resource type="PackedScene" uid="uid://bs5335vy5okwg" path="res://src/objects/others/door_exit.tscn" id="5_jjg0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k634l"]
 texture = ExtResource("1_7gbyn")
@@ -28,8 +29,12 @@ collision_layer = 2
 [node name="Lamp" parent="." instance=ExtResource("4_wej32")]
 position = Vector2(181, 168)
 _scenePath = NodePath("..")
+_doorScene = NodePath("../DoorExit")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="DoorExit" parent="." instance=ExtResource("5_jjg0h")]
+position = Vector2(305, 143)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

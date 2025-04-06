@@ -77,3 +77,9 @@ speed_scale = 0.5
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="lantern" parent="." instance=ExtResource("11_rat7f")]
+
+[node name="JumpHightTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="JumpHightTimer" to="." method="_on_jump_hight_timer_timeout"]
